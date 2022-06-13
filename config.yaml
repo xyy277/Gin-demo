@@ -1,0 +1,63 @@
+
+# zap logger configuration
+zap:
+  level: 'info'
+  prefix: '[gsafety]'
+  format: 'console'
+  director: 'log'
+  encode-level: 'LowercaseColorLevelEncoder'
+  stacktrace-key: 'stacktrace'
+  max-age: 30 # 默认日志留存默认以天为单位
+  show-line: true
+  log-in-console: true
+
+# redis configuration
+redis:
+  db: 0
+  addr: '192.168.244.142:6379'
+  password: ''
+
+
+# system configuration
+system:
+  env: 'public'  # Change to "develop" to skip authentication for development mode
+  addr: 9999
+  db-type: 'cockroach'
+  use-redis: true     # 使用redis
+
+
+mysql:
+  path: ''
+  port: ''
+  config: ''
+  db-name: ''
+  username: ''
+  password: ''
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: ""
+  log-zap: false
+
+pgsql:
+  path: ''
+  port: ''
+  config: ''
+  db-name: ''
+  username: ''
+  password: ''
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: ""
+  log-zap: false
+
+cockroach:
+  path: '192.168.244.142'
+  port: '26257'
+  config: ''
+  db-name: 'test'
+  username: 'root'
+  password: '123123'
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: "true"
+  log-zap: false

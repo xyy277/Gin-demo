@@ -1,0 +1,199 @@
+basePath: /
+definitions:
+  response.PageResult:
+    properties:
+      list: {}
+      page:
+        type: integer
+      pageSize:
+        type: integer
+      total:
+        type: integer
+    type: object
+  response.Response:
+    properties:
+      code:
+        type: integer
+      data: {}
+      msg:
+        type: string
+    type: object
+  test.Test:
+    properties:
+      createdAt:
+        description: 创建时间
+        type: string
+      id:
+        description: 主键ID
+        type: integer
+      testName:
+        type: string
+      updatedAt:
+        description: 更新时间
+        type: string
+    type: object
+info:
+  contact: {}
+  description: 智慧园区demo后端服务api
+  title: Swagger Gsafety demo API
+  version: 0.0.1
+paths:
+  /test/getTestList:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 创建时间
+        in: query
+        name: createdAt
+        type: string
+      - description: 主键ID
+        in: query
+        name: id
+        type: integer
+      - description: 关键字
+        in: query
+        name: keyword
+        type: string
+      - description: 页码
+        in: query
+        name: page
+        type: integer
+      - description: 每页大小
+        in: query
+        name: pageSize
+        type: integer
+      - in: query
+        name: testName
+        type: string
+      - description: 更新时间
+        in: query
+        name: updatedAt
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 分页获取Test列表,返回包括列表,总数,页码,每页数量
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.PageResult'
+                msg:
+                  type: string
+              type: object
+      summary: 测试分页获取test列表
+      tags:
+      - TestApi
+  /test/testDelete:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 用id测试delete请求
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: okay
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                msg:
+                  type: string
+              type: object
+      summary: 测试 Delete Api
+      tags:
+      - TestApi
+  /test/testGet:
+    get:
+      parameters:
+      - description: 用id测试get请求
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: okay
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                msg:
+                  type: string
+              type: object
+      summary: 测试 Get Api
+      tags:
+      - TestApi
+  /test/testPost:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 创建时间
+        in: query
+        name: createdAt
+        type: string
+      - description: 主键ID
+        in: query
+        name: id
+        type: integer
+      - in: query
+        name: testName
+        type: string
+      - description: 更新时间
+        in: query
+        name: updatedAt
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: okay
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                msg:
+                  type: string
+              type: object
+      summary: 测试 Post Api
+      tags:
+      - TestApi
+  /test/testPut:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: 测试put请求
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/test.Test'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: okay
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                msg:
+                  type: string
+              type: object
+      summary: 测试 Put Api
+      tags:
+      - TestApi
+swagger: "2.0"
