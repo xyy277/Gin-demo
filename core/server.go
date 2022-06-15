@@ -20,12 +20,14 @@ func RunServer() {
 		// 初始化redis服务
 		initialize.Redis()
 	}
-	// 初始化数据库
-	initialize.Gorm()
+	if global.GS_CONFIG.System.UseDatabase {
+		// 初始化数据库
+		initialize.Gorm()
+	}
 	Router := initialize.Routers()
 	Router.Static("/form-generator", "./resource/page")
 
-	address := fmt.Sprintf(":%d", global.GS_CONFIG.System.Addr)
+	address := fmt.Sprintf(":%d", global.GS_CONFIG.System.Port)
 	// init
 	s := func(address string, router *gin.Engine) server {
 		return &http.Server{

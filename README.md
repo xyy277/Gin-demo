@@ -24,6 +24,12 @@ field首字母大写的驼峰命名方式
 
 小写字母，当有多个单词时通过 _ 连接
 
-关于Gin
+关于Gin学习推荐
 
 https://github.com/skyhee/gin-doc-cn.git
+
+关于GO学习推荐
+
+https://github.com/golang101/golang101
+
+

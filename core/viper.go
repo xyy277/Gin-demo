@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"gsafety/core/internal"
 	"os"
-	"path/filepath"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -73,7 +72,6 @@ func Viper(path ...string) *viper.Viper {
 	}
 
 	// root 适配性 根据root位置去找到对应迁移位置,保证root路径有效
-	global.GS_CONFIG.AutoCode.Root, _ = filepath.Abs("..")
 	global.BlackCache = local_cache.NewCache(
 		local_cache.SetDefaultExpire(time.Second * time.Duration(global.GS_CONFIG.JWT.ExpiresTime)),
 	)

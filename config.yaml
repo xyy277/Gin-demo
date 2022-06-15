@@ -20,10 +20,10 @@ redis:
 
 # system configuration
 system:
-  env: 'public'  # Change to "develop" to skip authentication for development mode
-  addr: 9999
+  port: 9999
   db-type: 'cockroach'
-  use-redis: true     # 使用redis
+  use-redis: false     # 使用redis
+  use-database: false  #使用数据库
 
 
 mysql:

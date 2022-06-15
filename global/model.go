@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type GVA_MODEL struct {
+type GS_BASE_MODEL struct {
 	ID        uint           `gorm:"primarykey" json:"id" form:"id"` // 主键ID
 	CreatedAt time.Time      `json:"createdAt" form:"createdAt"`     // 创建时间
 	UpdatedAt time.Time      `json:"updatedAt" form:"updatedAt"`     // 更新时间

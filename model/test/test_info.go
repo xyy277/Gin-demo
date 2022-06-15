@@ -3,7 +3,7 @@ package test
 import "gsafety/global"
 
 type Test struct {
-	global.GVA_MODEL
+	global.GS_BASE_MODEL
 	TestName string `json:"testName" form:"testName"`
 }
 
